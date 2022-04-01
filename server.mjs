@@ -267,7 +267,7 @@ const checkOrderIntentHandler = {
             <p>
                 <s>Dear customer ${fullName.data}. Your last order of ${lastOrder.qty} ${lastOrder.topping} pizza was placed ${lastOrderDate} and it is in ${lastOrder.status}</s>
                 <s>I am your pizza rider</s>
-                <s>Please be patient. your order is our higest priority.</s>
+                <s>Please be patient. your order is our highest priority.</s>
             </p>
             </amazon:emotion>
         </voice>
@@ -335,7 +335,7 @@ const repeatOrderIntentHandler = {
         <voice name="Justin">
             <amazon:emotion name="excited" intensity="medium">
             <p>
-                <s>I heard you want to repeat your last order of ${lastOrder.qty} ${lastOrder.size} ${lastOrder.topping} </s>
+                <s>I heard you want to repeat your last order of ${lastOrder.qty} ${lastOrder.size} ${lastOrder.topping} pizza </s>
             <s>It is that correct?</s>
             </p>
             </amazon:emotion>
@@ -379,14 +379,23 @@ const repeatOrderIntentHandler = {
         "CONFIRMED"
       ) {
         // databse entry
+        const saveDoc = await orderModel.create({
+          topping: lastOrder.topping,
+          size:  lastOrder.size,
+          qty:  lastOrder.qty,
+          name: fullName.data,
+          address: email.data,
+        });
+        console.log("Save Documents ", saveDoc);
+        
         speakOutput = `
         <speak>
         <voice name="Justin">
             <amazon:emotion name="excited" intensity="medium">
             <p>
-                <s>Okay, order placed</s>
+                <s>Okay, order placed for ${lastOrder.qty} ${lastOrder.size} ${lastOrder.topping} pizza</s>
                 <s>I am your pizza rider</s>
-                <s>Please be patient. your order is our higest priority.</s>
+                <s>Please be patient. your order is our highest priority.</s>
                 <s>You can ask me about your order any time.</s>
             </p>
             </amazon:emotion>
