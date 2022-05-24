@@ -4,8 +4,8 @@
   "description": "\"This is pizza booking alexa app\"",
   "main": "server.mjs",
   "scripts": {
-    "start": "node server.mjs",
-    "dev": "node server.mjs",
+    "start": "nodemon server.mjs",
+    "dev": "nodemon server.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "\"Muhammad Hamza Farooq\"",
@@ -19,6 +19,7 @@
     "moment": "^2.29.1",
     "mongoose": "^6.2.7",
     "morgan": "^1.10.0",
-    "ngrok": "^4.3.1"
+    "ngrok": "^4.3.1",
+    "nodemon": "^2.0.16"
   }
 }
