@@ -10,7 +10,7 @@ import cors from "cors";
 const app = express();
 const PORT = process.env.PORT || 8000;
 // const localURL = `mongodb://localhost:27017/alexa-pizza-booking-db`;
-const cloudURL = `mongodb+srv://admin:12345@nodejscluster01.u7jbf.mongodb.net/alexa-pizza-booking-db?retryWrites=true&w=majority`;
+const cloudURL = ``;
 
 app.use(morgan("dev"));
 
